@@ -1,11 +1,11 @@
-# 🚀 Spaceship Titanic – ML Classification Project  
+# Spaceship Titanic – ML Classification Project  
 
 **Dataset:** Kaggle – Spaceship Titanic  
 **Goal:** Predict whether a passenger was transported to an alternate dimension  
 
 ---
 
-## 📌 Problem Overview  
+##  Problem Overview  
 
 The Spaceship Titanic dataset contains information about passengers aboard a damaged interstellar ship.  
 The task is to predict whether a passenger was **Transported (True/False)** based on their travel details, spending behavior, and cabin information.
@@ -14,11 +14,11 @@ This is a **binary classification problem**, evaluated using **accuracy**.
 
 ---
 
-## 🧠 Approach Summary  
+##  Approach Summary  
 
 We followed a structured machine learning workflow:
 
-### 1️⃣ Data Cleaning & Preprocessing  
+### 1️ Data Cleaning & Preprocessing  
 - Combined train and test data  
 - Extracted useful features from `Cabin`  
   - Deck  
@@ -33,7 +33,7 @@ We followed a structured machine learning workflow:
 
 ---
 
-### 2️⃣ Feature Engineering  
+### 2️ Feature Engineering  
 
 New features created:
 
@@ -46,7 +46,7 @@ New features created:
 
 ---
 
-### 3️⃣ Models Tried  
+### 3️ Models Tried  
 
 We trained and compared multiple classifiers:
 
@@ -60,7 +60,7 @@ We trained and compared multiple classifiers:
 
 ---
 
-### 4️⃣ Best Model – Ensemble  
+### 4️ Best Model – Ensemble  
 
 The final submission used an **ensemble model** combining:
 
@@ -73,7 +73,7 @@ This improved performance compared to individual models.
 
 ---
 
-## 🧪 How to Run the Code  
+##  How to Run the Code  
 
 
 ```bash
@@ -81,7 +81,7 @@ pip install pandas numpy scikit-learn
 python spaceship_titanic.py 
 ```
 
-📈 Results
+Results
 Model	Accuracy
 Extra Trees	0.805
 Gradient Boosting	0.796

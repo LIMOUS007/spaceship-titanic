@@ -1,89 +1,63 @@
-# Spaceship Titanic – ML Classification Project  
+# Spaceship Titanic Predictor
 
-**Dataset:** Kaggle – Spaceship Titanic  
-**Goal:** Predict whether a passenger was transported to an alternate dimension  
+Predicts whether a passenger aboard the Spaceship Titanic was transported to an alternate dimension.
 
----
-
-##  Problem Overview  
-
-The Spaceship Titanic dataset contains information about passengers aboard a damaged interstellar ship.  
-The task is to predict whether a passenger was **Transported (True/False)** based on their travel details, spending behavior, and cabin information.
-
-This is a **binary classification problem**, evaluated using **accuracy**.
+**Dataset:** Kaggle – Spaceship Titanic
+**Goal:** Predict whether a passenger was Transported (True/False)
+**Type:** Binary classification — evaluated with accuracy
 
 ---
 
-##  Approach Summary  
+## Approach
 
-We followed a structured machine learning workflow:
+### 1. Data Cleaning & Preprocessing
+- Combined train and test data
+- Extracted features from `Cabin`: Deck, Cabin Number, Side (Port/Starboard)
+- Extracted group-based features from `PassengerId`: Group ID, Group Size
+- Handled missing values: median for numerical columns, mode for categorical
 
-### 1️ Data Cleaning & Preprocessing  
-- Combined train and test data  
-- Extracted useful features from `Cabin`  
-  - Deck  
-  - Cabin Number  
-  - Side (Port/Starboard)  
-- Extracted group-based features from `PassengerId`  
-  - Group ID  
-  - Group Size  
-- Handled missing values using:
-  - Median for numerical columns  
-  - Mode for categorical columns  
-
----
-
-### 2️ Feature Engineering  
-
-New features created:
+### 2. Feature Engineering
 
 | Feature | Meaning |
-|--------|---------|
+|---------|---------|
 | `TotalSpending` | Sum of all spending columns |
-| `SpentAnything` | Whether passenger spent money |
+| `SpentAnything` | Whether the passenger spent money |
 | `Cryo_x_Spend` | Interaction between CryoSleep and spending |
 | `AvgSpendPerPerson` | Spending normalized by group size |
 
 ---
 
-### 3️ Models Tried  
+## Models compared
 
-We trained and compared multiple classifiers:
+- Logistic Regression
+- Random Forest
+- K-Nearest Neighbors (KNN)
+- Support Vector Machine (SVM)
+- Gradient Boosting
+- Extra Trees
+- AdaBoost
 
-- Logistic Regression  
-- Random Forest  
-- K-Nearest Neighbors  
-- Support Vector Machine (SVM)  
-- Gradient Boosting  
-- Extra Trees  
-- AdaBoost  
-
----
-
-### 4️ Best Model – Ensemble  
-
-The final submission used an **ensemble model** combining:
-
-- Extra Trees  
-- Gradient Boosting  
-
-Final Public Score on Kaggle: **0.80102**
-
-This improved performance compared to individual models.
+Final submission: an **ensemble** of Extra Trees + Gradient Boosting.
 
 ---
 
-##  How to Run the Code  
+## Results
 
+| Model | Accuracy |
+|-------|----------|
+| Extra Trees | 0.805 |
+| Gradient Boosting | 0.796 |
+| Ensemble (validation) | 0.808 |
+| Ensemble (Kaggle public) | 0.79869 |
+
+---
+
+## How to run
 
 ```bash
-pip install pandas numpy scikit-learn
-python spaceship_titanic.py 
+pip install -r requirements.txt
+python spaceship-titanic.py
 ```
 
-Results
-Model	Accuracy
-Extra Trees	0.805
-Gradient Boosting	0.796
-Ensemble	0.808 (validation)
-Kaggle Score	0.79869
+**Outputs:**
+- `submission_ensemble.csv`
